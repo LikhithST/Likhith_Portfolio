@@ -4,7 +4,7 @@ import wasm from "vite-plugin-wasm";
 import topLevelAwait from "vite-plugin-top-level-await";
 // https://vite.dev/config/
 export default defineConfig({
-  // base: '/portfolio-likhith/',
+  base: '/Likhith_Portfolio/',
   plugins: [react(),
     wasm(),
     topLevelAwait()

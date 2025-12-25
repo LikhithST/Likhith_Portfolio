@@ -8,7 +8,7 @@ import AppRoutes from './routes';
 // 4. Main Layout
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Likhith_Portfolio">
       <div className="layout">
         <Sidebar />
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
