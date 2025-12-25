@@ -8,7 +8,7 @@ import AppRoutes from './routes';
 // 4. Main Layout
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter>
       <div className="layout">
         <Sidebar />
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
