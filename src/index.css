@@ -1,0 +1,117 @@
+/* src/index.css */
+:root {
+  --font-main: 'Courier New', Courier, monospace;
+  --color-text: #000000;
+  --color-bg: #ffffff;
+  --color-border: #000000;
+  --color-highlight: #ffff00; /* Classic highlighter yellow */
+  --spacing-unit: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+a:hover {
+  background-color: var(--color-highlight);
+  text-decoration: none;
+}
+
+/* Layout Container */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile first: single column */
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+}
+
+/* Sidebar Styles */
+.sidebar {
+  padding: var(--spacing-unit);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd; /* Placeholder grey */
+  border-radius: 50%;
+  margin-bottom: var(--spacing-unit);
+  border: 1px solid var(--color-border);
+  object-fit: cover;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Main Content Styles */
+.main-content {
+  padding: var(--spacing-unit);
+}
+
+.header-content {
+  padding: var(--spacing-unit);
+}
+
+.post-item {
+  margin-bottom: 2rem;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: #555;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+/* Styles for rendered Markdown content */
+.markdown-body {
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: 300px 1fr; /* Sidebar | Content */
+  }
+
+  .sidebar {
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
