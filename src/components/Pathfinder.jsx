@@ -61,7 +61,7 @@ const Pathfinder = () => {
 
       try {
         const result = await WebAssembly.instantiateStreaming(
-          fetch("./go-wasm-pkg/main.wasm"), 
+          fetch("./src/go-wasm-pkg/main.wasm"), 
           go.importObject
         );
         
