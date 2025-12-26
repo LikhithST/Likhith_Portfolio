@@ -17,6 +17,11 @@ const PROJECTS_DATA = [
     url: 'https://github.com/LikhithST/wasm-game-of-life',
     description: "Conway's Game of Life implemented in Rust and WebAssembly.",
   },
+  {
+    name: 'path-finder',
+    url: 'https://github.com/LikhithST/bfs-vs-dfs',
+    description: "Conway's Game of Life implemented in Rust and WebAssembly.",
+  },
 ];
 
 const Projects = () => {

@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import mermaid from 'mermaid';
 import GameOfLife from '../components/GameOfLife';
+import Pathfinder from '../components/Pathfinder';
 
 mermaid.initialize({
   startOnLoad: false,
@@ -32,6 +33,7 @@ const Mermaid = ({ chart }) => {
 
 const PROJECT_COMPONENTS = {
   'wasm-game-of-life': GameOfLife,
+  'path-finder': Pathfinder
 };
 
 const ProjectPage = () => {
@@ -94,7 +96,7 @@ const ProjectPage = () => {
       {ProjectComponent && (
         <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center', overflowX: 'auto' }}>
           <ProjectComponent />
-        </div>
+        </div>        
       )}
       <div className="markdown-body markdown-wrapper" style={{ marginTop: '1.5rem', overflowX: 'auto' }}>
         {isLoading && <p>Loading README...</p>}

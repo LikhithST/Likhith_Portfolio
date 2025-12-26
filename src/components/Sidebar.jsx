@@ -16,7 +16,7 @@ const Sidebar = () => {
     <aside className="sidebar">
       {/* Placeholder for Tom's image */}
       <img 
-        src="https://placehold.co/200x200/black/white?text=TC" 
+        src="https://placehold.co/200x200/black/white?text=LS" 
         alt="Profile" 
         className="profile-img" 
       />
