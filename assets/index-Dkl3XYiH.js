@@ -27311,7 +27311,7 @@ ${e2.themeCSS}`), e2.fontFamily !== void 0 && (n2 += `
         jsPaintCell: window.jsPaintCell
       };
       try {
-        let t3 = await WebAssembly.instantiateStreaming(fetch(`./go-wasm-pkg/main.wasm`), e3.importObject);
+        let t3 = await WebAssembly.instantiateStreaming(fetch(`./src/go-wasm-pkg/main.wasm`), e3.importObject);
         e3.run(t3.instance), window.goInitGrid(fC, pC), h2(), i2(true), console.log(`WASM Pathfinder Loaded`);
       } catch (e4) {
         console.error(`Failed to load WASM:`, e4);
