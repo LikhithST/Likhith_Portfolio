@@ -10354,119 +10354,184 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
       label: `Contributions`,
       href: `/contributions`
     }
-  ], vr = () => (0, j.jsxs)(`aside`, {
-    className: `sidebar`,
-    children: [
-      (0, j.jsx)(`img`, {
-        src: `https://placehold.co/200x200/black/white?text=LS`,
-        alt: `Profile`,
-        className: `profile-img`
-      }),
-      (0, j.jsx)(`h1`, {
-        children: `Likhith S T`
-      }),
-      (0, j.jsx)(`p`, {
-        style: {
-          fontSize: `0.9rem`,
-          marginBottom: `1.5rem`
-        },
-        children: `Strategy consultant. Indie web enthusiast. Living in the grid.`
-      }),
-      (0, j.jsx)(`nav`, {
-        children: (0, j.jsx)(`ul`, {
-          className: `nav-list`,
-          children: _r.map((e2) => (0, j.jsx)(`li`, {
-            children: (0, j.jsxs)(Qn, {
-              to: e2.href,
-              children: [
-                `/ `,
-                e2.label
-              ]
-            })
-          }, e2.label))
-        })
-      }),
-      (0, j.jsxs)(`div`, {
-        style: {
-          display: `flex`,
-          gap: `1rem`
-        },
-        children: [
-          (0, j.jsx)(`a`, {
-            href: `mailto:likhithsadahallithammegowda@gmail.com`,
-            "aria-label": `Email`,
-            style: {
-              color: `inherit`
-            },
-            children: (0, j.jsx)(`svg`, {
-              xmlns: `http://www.w3.org/2000/svg`,
-              width: `24`,
-              height: `24`,
-              viewBox: `0 0 24 24`,
-              fill: `currentColor`,
-              children: (0, j.jsx)(`path`, {
-                d: `M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z`
-              })
-            })
-          }),
-          (0, j.jsx)(`a`, {
-            href: `https://www.linkedin.com/in/likhith-s-t-220191190`,
-            target: `_blank`,
-            rel: `noopener noreferrer`,
-            "aria-label": `LinkedIn`,
-            style: {
-              color: `inherit`
-            },
-            children: (0, j.jsx)(`svg`, {
-              xmlns: `http://www.w3.org/2000/svg`,
-              width: `24`,
-              height: `24`,
-              viewBox: `0 0 24 24`,
-              fill: `currentColor`,
-              children: (0, j.jsx)(`path`, {
-                d: `M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z`
-              })
-            })
-          }),
-          (0, j.jsx)(`a`, {
-            href: `https://github.com/LikhithST`,
-            target: `_blank`,
-            rel: `noopener noreferrer`,
-            "aria-label": `GitHub`,
-            style: {
-              color: `inherit`
-            },
-            children: (0, j.jsx)(`svg`, {
-              xmlns: `http://www.w3.org/2000/svg`,
-              width: `24`,
-              height: `24`,
-              viewBox: `0 0 24 24`,
-              fill: `currentColor`,
-              children: (0, j.jsx)(`path`, {
-                d: `M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z`
-              })
-            })
-          })
-        ]
-      }),
-      (0, j.jsx)(`div`, {
-        style: {
-          marginTop: `2rem`,
-          borderTop: `1px solid #000`,
-          paddingTop: `1rem`
-        },
-        children: (0, j.jsxs)(`small`, {
+  ], vr = () => {
+    let [e2, t2] = (0, A.useState)(false);
+    return (0, j.jsxs)(j.Fragment, {
+      children: [
+        (0, j.jsx)(`style`, {
+          children: `
+        .menu-toggle {
+          display: none;
+        }
+        @media (max-width: 768px) {
+          .menu-toggle {
+            display: block;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1100;
+            background: white;
+            border: 1px solid #000;
+            padding: 0.5rem 0.8rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+          }
+          .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 250px;
+            background: white;
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            border-right: 1px solid #000;
+            padding: 1.5rem;
+            overflow-y: auto;
+          }
+          .sidebar.open {
+            transform: translateX(0);
+          }
+          .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 900;
+          }
+        }
+      `
+        }),
+        (0, j.jsx)(`button`, {
+          className: `menu-toggle`,
+          onClick: () => t2(!e2),
+          "aria-label": `Toggle menu`,
+          children: e2 ? `\u2715` : `\u2630`
+        }),
+        e2 && (0, j.jsx)(`div`, {
+          className: `sidebar-overlay`,
+          onClick: () => t2(false)
+        }),
+        (0, j.jsxs)(`aside`, {
+          className: `sidebar ${e2 ? `open` : ``}`,
           children: [
-            `Currently reading: `,
-            (0, j.jsx)(`br`, {}),
-            (0, j.jsx)(`em`, {
-              children: `Container Security -Liz Rice`
+            (0, j.jsx)(`img`, {
+              src: `https://placehold.co/200x200/black/white?text=LS`,
+              alt: `Profile`,
+              className: `profile-img`
+            }),
+            (0, j.jsx)(`h1`, {
+              children: `Likhith S T`
+            }),
+            (0, j.jsx)(`p`, {
+              style: {
+                fontSize: `0.9rem`,
+                marginBottom: `1.5rem`
+              },
+              children: `Strategy consultant. Indie web enthusiast. Living in the grid.`
+            }),
+            (0, j.jsx)(`nav`, {
+              children: (0, j.jsx)(`ul`, {
+                className: `nav-list`,
+                children: _r.map((e3) => (0, j.jsx)(`li`, {
+                  children: (0, j.jsxs)(Qn, {
+                    to: e3.href,
+                    onClick: () => t2(false),
+                    children: [
+                      `/ `,
+                      e3.label
+                    ]
+                  })
+                }, e3.label))
+              })
+            }),
+            (0, j.jsxs)(`div`, {
+              style: {
+                display: `flex`,
+                gap: `1rem`
+              },
+              children: [
+                (0, j.jsx)(`a`, {
+                  href: `mailto:likhithsadahallithammegowda@gmail.com`,
+                  "aria-label": `Email`,
+                  style: {
+                    color: `inherit`
+                  },
+                  children: (0, j.jsx)(`svg`, {
+                    xmlns: `http://www.w3.org/2000/svg`,
+                    width: `24`,
+                    height: `24`,
+                    viewBox: `0 0 24 24`,
+                    fill: `currentColor`,
+                    children: (0, j.jsx)(`path`, {
+                      d: `M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z`
+                    })
+                  })
+                }),
+                (0, j.jsx)(`a`, {
+                  href: `https://www.linkedin.com/in/likhith-s-t-220191190`,
+                  target: `_blank`,
+                  rel: `noopener noreferrer`,
+                  "aria-label": `LinkedIn`,
+                  style: {
+                    color: `inherit`
+                  },
+                  children: (0, j.jsx)(`svg`, {
+                    xmlns: `http://www.w3.org/2000/svg`,
+                    width: `24`,
+                    height: `24`,
+                    viewBox: `0 0 24 24`,
+                    fill: `currentColor`,
+                    children: (0, j.jsx)(`path`, {
+                      d: `M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z`
+                    })
+                  })
+                }),
+                (0, j.jsx)(`a`, {
+                  href: `https://github.com/LikhithST`,
+                  target: `_blank`,
+                  rel: `noopener noreferrer`,
+                  "aria-label": `GitHub`,
+                  style: {
+                    color: `inherit`
+                  },
+                  children: (0, j.jsx)(`svg`, {
+                    xmlns: `http://www.w3.org/2000/svg`,
+                    width: `24`,
+                    height: `24`,
+                    viewBox: `0 0 24 24`,
+                    fill: `currentColor`,
+                    children: (0, j.jsx)(`path`, {
+                      d: `M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z`
+                    })
+                  })
+                })
+              ]
+            }),
+            (0, j.jsx)(`div`, {
+              style: {
+                marginTop: `2rem`,
+                borderTop: `1px solid #000`,
+                paddingTop: `1rem`
+              },
+              children: (0, j.jsxs)(`small`, {
+                children: [
+                  `Currently reading: `,
+                  (0, j.jsx)(`br`, {}),
+                  (0, j.jsx)(`em`, {
+                    children: `Container Security -Liz Rice`
+                  })
+                ]
+              })
             })
           ]
         })
-      })
-    ]
-  }), yr = [
+      ]
+    });
+  }, yr = [
     {
       id: 1,
       date: `Oct 24, 2023`,
@@ -10539,9 +10604,81 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
         ]
       })
     ]
-  }), xr = () => (0, j.jsxs)(`main`, {
+  }), xr = [
+    {
+      company: `Robert Bosch M/TEY`,
+      role: `Master Thesis: Fault Injection Mechanisms in Virtualized Environments`,
+      period: `July 2025 \u2013 Present`,
+      desc: `Designed and developed a structured framework to inject faults into Functional Mock-up Units (FMUs). Implemented an observability module to monitor internal states and measure resource utilization.`,
+      tags: [
+        `Fault Injection`,
+        `FMU`,
+        `Observability`,
+        `Research`
+      ]
+    },
+    {
+      company: `Robert Bosch CR`,
+      role: `Intern`,
+      period: `Feb 2025 \u2013 July 2025`,
+      desc: `Low-latency communication strategies to enable Vehicle-to-Cloud (V2C) teleoperation. Evaluated Microsoft Azure infrastructure and investigated WebRTC for real-time streaming.`,
+      tags: [
+        `V2C`,
+        `Azure`,
+        `WebRTC`,
+        `Low-latency`
+      ]
+    },
+    {
+      company: `Robert Bosch CR`,
+      role: `Work Student`,
+      period: `Feb 2024 \u2013 Nov 2024`,
+      desc: `Black box testing of kuksa-databroker using ghz tool. White box testing using OpenTelemetry in Rust. Integrated Prometheus and Grafana for monitoring.`,
+      tags: [
+        `Rust`,
+        `OpenTelemetry`,
+        `Prometheus`,
+        `Grafana`,
+        `Testing`
+      ]
+    },
+    {
+      company: `Enginecal Technology Pvt Ltd`,
+      role: `Software Engineer`,
+      period: `Jan 2022 \u2013 Feb 2023`,
+      desc: `Product development focused on DevOps and Full-stack. Developed microservices for vehicle data processing with CI/CD on Azure Kubernetes Service.`,
+      tags: [
+        `DevOps`,
+        `Full-stack`,
+        `Microservices`,
+        `AKS`,
+        `CI/CD`
+      ]
+    }
+  ], Sr = () => (0, j.jsxs)(`main`, {
     className: `main-content`,
     children: [
+      (0, j.jsx)(`style`, {
+        children: `
+        .timeline {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
+        .timeline-item {
+        }
+        .tag {
+          display: inline-block;
+          font-size: 0.75rem;
+          padding: 0.2rem 0.6rem;
+          border: 1px solid #000;
+          margin-right: 0.5rem;
+          margin-top: 0.5rem;
+          background-color: #f4f4f4;
+          font-family: monospace;
+        }
+      `
+      }),
       (0, j.jsx)(`header`, {
         children: (0, j.jsx)(`h2`, {
           style: {
@@ -10559,7 +10696,7 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
         children: [
           (0, j.jsx)(`p`, {
             style: {
-              marginBottom: `1.5rem`
+              marginBottom: `2rem`
             },
             children: `Hi, I'm Likhith. I'm a software engineer passionate about building robust and scalable systems.`
           }),
@@ -10567,196 +10704,75 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
             style: {
               fontSize: `1.1rem`,
               fontWeight: `bold`,
-              marginTop: `2rem`,
-              marginBottom: `1rem`,
-              borderBottom: `1px dashed #ccc`
+              marginBottom: `2rem`
             },
             children: `Experience`
           }),
-          (0, j.jsxs)(`div`, {
-            style: {
-              marginBottom: `1.5rem`
-            },
-            children: [
-              (0, j.jsxs)(`div`, {
-                style: {
-                  display: `flex`,
-                  justifyContent: `space-between`,
-                  alignItems: `baseline`,
-                  flexWrap: `wrap`
-                },
-                children: [
-                  (0, j.jsx)(`h4`, {
-                    style: {
-                      margin: 0,
-                      fontSize: `1rem`
-                    },
-                    children: `Robert Bosch M/TEY`
-                  }),
-                  (0, j.jsx)(`small`, {
-                    style: {
-                      color: `#666`
-                    },
-                    children: `July 2025 \u2013 Present`
-                  })
-                ]
-              }),
-              (0, j.jsx)(`div`, {
-                style: {
-                  fontStyle: `italic`,
-                  fontSize: `0.9rem`,
-                  marginBottom: `0.5rem`
-                },
-                children: `Master Thesis: Fault Injection Mechanisms in Virtualized Environments`
-              }),
-              (0, j.jsx)(`p`, {
-                style: {
-                  margin: 0,
-                  fontSize: `0.95rem`
-                },
-                children: `Designed and developed a structured framework to inject faults into Functional Mock-up Units (FMUs). Implemented an observability module to monitor internal states and measure resource utilization.`
-              })
-            ]
-          }),
-          (0, j.jsxs)(`div`, {
-            style: {
-              marginBottom: `1.5rem`
-            },
-            children: [
-              (0, j.jsxs)(`div`, {
-                style: {
-                  display: `flex`,
-                  justifyContent: `space-between`,
-                  alignItems: `baseline`,
-                  flexWrap: `wrap`
-                },
-                children: [
-                  (0, j.jsx)(`h4`, {
-                    style: {
-                      margin: 0,
-                      fontSize: `1rem`
-                    },
-                    children: `Robert Bosch CR`
-                  }),
-                  (0, j.jsx)(`small`, {
-                    style: {
-                      color: `#666`
-                    },
-                    children: `Feb 2025 \u2013 July 2025`
-                  })
-                ]
-              }),
-              (0, j.jsx)(`div`, {
-                style: {
-                  fontStyle: `italic`,
-                  fontSize: `0.9rem`,
-                  marginBottom: `0.5rem`
-                },
-                children: `Intern`
-              }),
-              (0, j.jsx)(`p`, {
-                style: {
-                  margin: 0,
-                  fontSize: `0.95rem`
-                },
-                children: `Low-latency communication strategies to enable Vehicle-to-Cloud (V2C) teleoperation. Evaluated Microsoft Azure infrastructure and investigated WebRTC for real-time streaming.`
-              })
-            ]
-          }),
-          (0, j.jsxs)(`div`, {
-            style: {
-              marginBottom: `1.5rem`
-            },
-            children: [
-              (0, j.jsxs)(`div`, {
-                style: {
-                  display: `flex`,
-                  justifyContent: `space-between`,
-                  alignItems: `baseline`,
-                  flexWrap: `wrap`
-                },
-                children: [
-                  (0, j.jsx)(`h4`, {
-                    style: {
-                      margin: 0,
-                      fontSize: `1rem`
-                    },
-                    children: `Robert Bosch CR`
-                  }),
-                  (0, j.jsx)(`small`, {
-                    style: {
-                      color: `#666`
-                    },
-                    children: `Feb 2024 \u2013 Nov 2024`
-                  })
-                ]
-              }),
-              (0, j.jsx)(`div`, {
-                style: {
-                  fontStyle: `italic`,
-                  fontSize: `0.9rem`,
-                  marginBottom: `0.5rem`
-                },
-                children: `Work Student`
-              }),
-              (0, j.jsx)(`p`, {
-                style: {
-                  margin: 0,
-                  fontSize: `0.95rem`
-                },
-                children: `Black box testing of kuksa-databroker using ghz tool. White box testing using OpenTelemetry in Rust. Integrated Prometheus and Grafana for monitoring.`
-              })
-            ]
-          }),
-          (0, j.jsxs)(`div`, {
-            style: {
-              marginBottom: `1.5rem`
-            },
-            children: [
-              (0, j.jsxs)(`div`, {
-                style: {
-                  display: `flex`,
-                  justifyContent: `space-between`,
-                  alignItems: `baseline`,
-                  flexWrap: `wrap`
-                },
-                children: [
-                  (0, j.jsx)(`h4`, {
-                    style: {
-                      margin: 0,
-                      fontSize: `1rem`
-                    },
-                    children: `Enginecal Technology Pvt Ltd`
-                  }),
-                  (0, j.jsx)(`small`, {
-                    style: {
-                      color: `#666`
-                    },
-                    children: `Jan 2022 \u2013 Feb 2023`
-                  })
-                ]
-              }),
-              (0, j.jsx)(`div`, {
-                style: {
-                  fontStyle: `italic`,
-                  fontSize: `0.9rem`,
-                  marginBottom: `0.5rem`
-                },
-                children: `Software Engineer`
-              }),
-              (0, j.jsx)(`p`, {
-                style: {
-                  margin: 0,
-                  fontSize: `0.95rem`
-                },
-                children: `Product development focused on DevOps and Full-stack. Developed microservices for vehicle data processing with CI/CD on Azure Kubernetes Service.`
-              })
-            ]
+          (0, j.jsx)(`div`, {
+            className: `timeline`,
+            children: xr.map((e2, t2) => (0, j.jsxs)(`div`, {
+              className: `timeline-item`,
+              children: [
+                (0, j.jsxs)(`div`, {
+                  style: {
+                    display: `flex`,
+                    justifyContent: `space-between`,
+                    alignItems: `baseline`,
+                    flexWrap: `wrap`,
+                    marginBottom: `0.25rem`
+                  },
+                  children: [
+                    (0, j.jsx)(`h4`, {
+                      style: {
+                        margin: 0,
+                        fontSize: `1rem`,
+                        fontWeight: `bold`
+                      },
+                      children: e2.company
+                    }),
+                    (0, j.jsx)(`small`, {
+                      style: {
+                        fontFamily: `monospace`,
+                        fontSize: `0.85rem`,
+                        color: `#666`
+                      },
+                      children: e2.period
+                    })
+                  ]
+                }),
+                (0, j.jsx)(`div`, {
+                  style: {
+                    fontStyle: `italic`,
+                    fontSize: `0.9rem`,
+                    marginBottom: `0.5rem`,
+                    color: `#444`
+                  },
+                  children: e2.role
+                }),
+                (0, j.jsx)(`p`, {
+                  style: {
+                    margin: 0,
+                    fontSize: `0.95rem`,
+                    lineHeight: `1.5`
+                  },
+                  children: e2.desc
+                }),
+                (0, j.jsx)(`div`, {
+                  style: {
+                    marginTop: `0.5rem`
+                  },
+                  children: e2.tags.map((e3) => (0, j.jsx)(`span`, {
+                    className: `tag`,
+                    children: e3
+                  }, e3))
+                })
+              ]
+            }, t2))
           })
         ]
       })
     ]
-  }), Sr = () => (0, j.jsxs)(`main`, {
+  }), Cr = () => (0, j.jsxs)(`main`, {
     className: `main-content`,
     children: [
       (0, j.jsx)(`header`, {
@@ -10772,7 +10788,7 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
         children: `This is the Consulting page.`
       })
     ]
-  }), Cr = () => (0, j.jsxs)(`main`, {
+  }), wr = () => (0, j.jsxs)(`main`, {
     className: `main-content`,
     children: [
       (0, j.jsx)(`header`, {
@@ -10788,7 +10804,7 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
         children: `This is the Library page.`
       })
     ]
-  }), wr = () => (0, j.jsxs)(`main`, {
+  }), Tr = () => (0, j.jsxs)(`main`, {
     className: `main-content`,
     children: [
       (0, j.jsx)(`header`, {
@@ -10804,73 +10820,78 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
         children: `This is the Wiki page.`
       })
     ]
-  }), Tr = [
-    {
-      name: `custom_ghz`,
-      url: `https://github.com/LikhithST/custom_ghz`,
-      description: `Modified ghz tool (Go) to capture custom metrics for black box testing.`
-    },
-    {
-      name: `Observability_UI`,
-      url: `https://github.com/LikhithST/Observability_UI`,
-      description: `A UI for visualizing observability data from various sources.`
-    },
-    {
-      name: `wasm-game-of-life`,
-      url: `https://github.com/LikhithST/wasm-game-of-life`,
-      description: `Conway's Game of Life implemented in Rust and WebAssembly.`
-    },
-    {
-      name: `path-finder`,
-      url: `https://github.com/LikhithST/bfs-vs-dfs`,
-      description: `Conway's Game of Life implemented in Rust and WebAssembly.`
-    }
-  ], Er = () => (0, j.jsxs)(`main`, {
-    className: `main-content`,
-    children: [
-      (0, j.jsx)(`header`, {
-        children: (0, j.jsx)(`h2`, {
+  }), Er = () => {
+    let [e2, t2] = (0, A.useState)([]);
+    return (0, A.useEffect)(() => {
+      let e3 = localStorage.getItem(`starred_projects`), n2 = Date.now();
+      if (e3) try {
+        let { data: r2, timestamp: i2 } = JSON.parse(e3);
+        if (r2 && i2 && n2 - i2 < 6e4) {
+          t2(r2);
+          return;
+        }
+      } catch {
+      }
+      fetch(`https://api.github.com/users/LikhithST/starred`).then((e4) => e4.json()).then((e4) => {
+        if (Array.isArray(e4)) {
+          let n3 = e4.filter((e5) => e5.owner.login === `LikhithST`).map((e5) => ({
+            name: e5.name,
+            url: e5.html_url,
+            description: e5.description
+          }));
+          t2(n3), localStorage.setItem(`starred_projects`, JSON.stringify({
+            data: n3,
+            timestamp: Date.now()
+          }));
+        }
+      }).catch((e4) => console.error(`Error fetching projects:`, e4));
+    }, []), (0, j.jsxs)(`main`, {
+      className: `main-content`,
+      children: [
+        (0, j.jsx)(`header`, {
+          children: (0, j.jsx)(`h2`, {
+            style: {
+              borderBottom: `1px solid #000`,
+              paddingBottom: `0.5rem`
+            },
+            children: `Projects`
+          })
+        }),
+        (0, j.jsx)(`div`, {
           style: {
-            borderBottom: `1px solid #000`,
-            paddingBottom: `0.5rem`
+            marginTop: `1.5rem`
           },
-          children: `Projects`
-        })
-      }),
-      (0, j.jsx)(`div`, {
-        style: {
-          marginTop: `1.5rem`
-        },
-        children: Tr.map((e2) => (0, j.jsxs)(`article`, {
-          className: `post-item`,
-          children: [
-            (0, j.jsx)(`h3`, {
-              className: `post-title`,
-              children: (0, j.jsx)(Qn, {
-                to: `/projects/${e2.name}`,
-                children: e2.name
-              })
-            }),
-            (0, j.jsxs)(`p`, {
-              children: [
-                e2.description,
-                ` `,
-                (0, j.jsx)(`a`, {
-                  href: e2.url,
-                  target: `_blank`,
-                  rel: `noopener noreferrer`,
-                  style: {
-                    fontSize: `0.85rem`
-                  },
-                  children: `(GitHub)`
+          children: e2.map((e3) => (0, j.jsxs)(`article`, {
+            className: `post-item`,
+            children: [
+              (0, j.jsx)(`h3`, {
+                className: `post-title`,
+                children: (0, j.jsx)(Qn, {
+                  to: `/projects/${e3.name}`,
+                  children: e3.name
                 })
-              ]
-            })
-          ]
-        }, e2.name))
-      })
-    ]
-  }), Dr = () => (0, j.jsxs)(`main`, {
+              }),
+              (0, j.jsxs)(`p`, {
+                children: [
+                  e3.description,
+                  ` `,
+                  (0, j.jsx)(`a`, {
+                    href: e3.url,
+                    target: `_blank`,
+                    rel: `noopener noreferrer`,
+                    style: {
+                      fontSize: `0.85rem`
+                    },
+                    children: `(GitHub)`
+                  })
+                ]
+              })
+            ]
+          }, e3.name))
+        })
+      ]
+    });
+  }, Dr = () => (0, j.jsxs)(`main`, {
     className: `main-content`,
     children: [
       (0, j.jsx)(`header`, {
@@ -27705,19 +27726,19 @@ ${e2.themeCSS}`), e2.fontFamily !== void 0 && (n2 += `
       }),
       (0, j.jsx)(un, {
         path: `/about`,
-        element: (0, j.jsx)(xr, {})
-      }),
-      (0, j.jsx)(un, {
-        path: `/consulting`,
         element: (0, j.jsx)(Sr, {})
       }),
       (0, j.jsx)(un, {
-        path: `/library`,
+        path: `/consulting`,
         element: (0, j.jsx)(Cr, {})
       }),
       (0, j.jsx)(un, {
-        path: `/wiki`,
+        path: `/library`,
         element: (0, j.jsx)(wr, {})
+      }),
+      (0, j.jsx)(un, {
+        path: `/wiki`,
+        element: (0, j.jsx)(Tr, {})
       }),
       (0, j.jsx)(un, {
         path: `/projects`,
