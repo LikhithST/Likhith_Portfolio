@@ -1,30 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const PROJECTS_DATA = [
-  {
-    name: 'custom_ghz',
-    url: 'https://github.com/LikhithST/custom_ghz',
-    description: 'Modified ghz tool (Go) to capture custom metrics for black box testing.',
-  },
-  {
-    name: 'Observability_UI',
-    url: 'https://github.com/LikhithST/Observability_UI',
-    description: 'A UI for visualizing observability data from various sources.',
-  },
-  {
-    name: 'wasm-game-of-life',
-    url: 'https://github.com/LikhithST/wasm-game-of-life',
-    description: "Conway's Game of Life implemented in Rust and WebAssembly.",
-  },
-  {
-    name: 'path-finder',
-    url: 'https://github.com/LikhithST/bfs-vs-dfs',
-    description: "Conway's Game of Life implemented in Rust and WebAssembly.",
-  },
-];
-
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('starred_projects');
+    const now = Date.now();
+    const CACHE_DURATION = 1 * 60 * 1000; // 1 hour
+
+    if (saved) {
+      try {
+        const { data, timestamp } = JSON.parse(saved);
+        if (data && timestamp && now - timestamp < CACHE_DURATION) {
+          setProjects(data);
+          return;
+        }
+      } catch (e) {
+        // Ignore errors, proceed to fetch
+      }
+    }
+
+    fetch('https://api.github.com/users/LikhithST/starred')
+      .then((response) => response.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          const projectList = data
+            .filter((repo) => repo.owner.login === 'LikhithST')
+            .map((repo) => ({
+              name: repo.name,
+              url: repo.html_url,
+              description: repo.description,
+            }));
+          setProjects(projectList);
+          localStorage.setItem('starred_projects', JSON.stringify({
+            data: projectList,
+            timestamp: Date.now(),
+          }));
+        }
+      })
+      .catch((error) => console.error('Error fetching projects:', error));
+  }, []);
+
   return (
     <main className="main-content">
       <header>
@@ -33,7 +50,7 @@ const Projects = () => {
         </h2>
       </header>
       <div style={{ marginTop: '1.5rem' }}>
-        {PROJECTS_DATA.map((project) => (
+        {projects.map((project) => (
           <article key={project.name} className="post-item">
             <h3 className="post-title">
               <Link to={`/projects/${project.name}`}>{project.name}</Link>

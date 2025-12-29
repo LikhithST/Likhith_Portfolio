@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const NAV_LINKS = [
@@ -12,8 +12,72 @@ const NAV_LINKS = [
 ];
 
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <aside className="sidebar">
+    <>
+      <style>{`
+        .menu-toggle {
+          display: none;
+        }
+        @media (max-width: 768px) {
+          .menu-toggle {
+            display: block;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1100;
+            background: white;
+            border: 1px solid #000;
+            padding: 0.5rem 0.8rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+          }
+          .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 250px;
+            background: white;
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            border-right: 1px solid #000;
+            padding: 1.5rem;
+            overflow-y: auto;
+          }
+          .sidebar.open {
+            transform: translateX(0);
+          }
+          .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 900;
+          }
+        }
+      `}</style>
+
+      <button 
+        className="menu-toggle" 
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+      >
+        {isOpen ? '✕' : '☰'}
+      </button>
+
+      {isOpen && (
+        <div 
+          className="sidebar-overlay" 
+          onClick={() => setIsOpen(false)} 
+        />
+      )}
+
+      <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       {/* Placeholder for Tom's image */}
       <img 
         src="https://placehold.co/200x200/black/white?text=LS" 
@@ -30,7 +94,7 @@ const Sidebar = () => {
         <ul className="nav-list">
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
-              <Link to={link.href}>/ {link.label}</Link>
+              <Link to={link.href} onClick={() => setIsOpen(false)}>/ {link.label}</Link>
             </li>
           ))}
         </ul>
@@ -53,6 +117,7 @@ const Sidebar = () => {
         <small>Currently reading: <br/><em>Container Security -Liz Rice</em></small>
       </div>
     </aside>
+    </>
   );
 };
 
