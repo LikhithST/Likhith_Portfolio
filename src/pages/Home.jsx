@@ -1,30 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Mock Data to simulate the blog feed
 const POSTS = [
   {
-    id: 1,
-    date: 'Oct 24, 2023',
-    title: 'The Strategic Independent',
-    excerpt: 'Notes on consulting, strategy, and the independent path...'
+    id: 'portfolio-article',
+    date: 'Jan 07, 2026',
+    title: 'Automating My Portfolio with GitHub',
+    excerpt: 'How I built a self-updating portfolio that syncs directly with my code repositories.',
+    path: '/article/portfolio'
   },
   {
-    id: 2,
-    date: 'Sep 12, 2023',
-    title: 'Digital Gardens and Wikis',
-    excerpt: 'Why we need to move away from streams and back to gardens.'
-  },
-  {
-    id: 3,
-    date: 'Aug 05, 2023',
-    title: 'Small b blogging',
-    excerpt: 'Writing for a small audience vs the algorithm.'
-  },
-  {
-    id: 4,
-    date: 'Jul 22, 2023',
-    title: 'Networked thought',
-    excerpt: 'How linking your thinking creates value over time.'
+    id: 'wasm-article',
+    date: 'Jan 06, 2026',
+    title: 'WebAssembly in Action: Rust & Go',
+    excerpt: 'Deep dive into how the Game of Life and Pathfinder projects leverage Wasm.',
+    path: '/article/wasm'
   }
 ];
 
@@ -42,16 +33,16 @@ const Home = () => {
           <article key={post.id} className="post-item">
             <span className="post-date">{post.date}</span>
             <h3 className="post-title">
-              <a href="#">{post.title}</a>
+              {post.path ? (
+                <Link to={post.path}>{post.title}</Link>
+              ) : (
+                <a href="#">{post.title}</a>
+              )}
             </h3>
             <p>{post.excerpt}</p>
           </article>
         ))}
       </div>
-
-      <footer style={{ marginTop: '3rem', padding: '1rem', border: '1px dashed #000' }}>
-        <strong>Note:</strong> This is a React clone demonstrating the layout structure.
-      </footer>
     </main>
   );
 };

@@ -8,6 +8,8 @@ import Wiki from '../pages/Wiki';
 import Projects from '../pages/Projects';
 import Contributions from '../pages/Contributions';
 import ProjectPage from '../pages/ProjectPage';
+import WasmArticle from '../pages/WasmArticle';
+import PortfolioArticle from '../pages/PortfolioArticle';
 
 const AppRoutes = () => {
   return (
@@ -20,6 +22,8 @@ const AppRoutes = () => {
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:projectName" element={<ProjectPage />} />
       <Route path="/contributions" element={<Contributions />} />
+      <Route path="/article/wasm" element={<WasmArticle />} />
+      <Route path="/article/portfolio" element={<PortfolioArticle />} />
     </Routes>
   );
 };

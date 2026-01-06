@@ -18,7 +18,9 @@ const Contributions = () => {
           </p>
         </li>
         <li style={{ marginBottom: '1rem' }}>
-          <div style={{ fontWeight: 'bold' }}>SofDCar Hackathon</div>
+          <div style={{ fontWeight: 'bold' }}>
+            <a href="https://github.com/LikhithST/sofdcar-hackathon" target="_blank" rel="noopener noreferrer">SofDCar Hackathon</a>
+          </div>
           <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.95rem' }}>
             Technical Contributor & Organizer. Developed startup scripts and boilerplate code to streamline project initialization.
           </p>

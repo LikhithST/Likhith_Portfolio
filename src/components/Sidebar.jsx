@@ -87,7 +87,7 @@ const Sidebar = () => {
       
       <h1>Likhith S T</h1>
       <p style={{ fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-        Strategy consultant. Indie web enthusiast. Living in the grid.
+        Software engineer passionate about building robust and scalable systems.
       </p>
 
       <nav>
@@ -114,7 +114,9 @@ const Sidebar = () => {
         </div>
 
       <div style={{ marginTop: '2rem', borderTop: '1px solid #000', paddingTop: '1rem' }}>
-        <small>Currently reading: <br/><em>Container Security -Liz Rice</em></small>
+        <small>Currently reading: <br/><em>Container Security - Liz Rice</em><br/><em>Learning eBPF - Liz Rice</em></small>
+        <br/><br/>
+        <small>Recently read: <br/><em>The Psychology of Money - Morgan Housel</em></small>
       </div>
     </aside>
     </>
