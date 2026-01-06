@@ -1,48 +1,52 @@
-# Go + WebAssembly Pathfinding Visualizer
+# Likhith's Portfolio
 
-This project demonstrates how to integrate Go code compiled to WebAssembly (WASM) into a React application. It visualizes Breadth-First Search (BFS) and Depth-First Search (DFS) algorithms on a grid.
+Welcome to the source code of my personal portfolio website. This application is built with React and Vite, serving as a central hub for my professional experience, projects, and technical writings.
 
-## Algorithms in Go
+[Live Site](https://LikhithST.github.io/Likhith_Portfolio)
 
-The pathfinding logic resides in a Go module.
+## 🚀 Features
 
-- **BFS (Breadth-First Search)**: Implemented using a queue. It explores neighbor nodes level by level, ensuring the shortest path is found in an unweighted grid.
-- **DFS (Depth-First Search)**: Implemented using recursion or a stack. It explores as deep as possible along each branch before backtracking.
+- **GitHub Synchronization**: The "Projects" section dynamically fetches repositories and their `README.md` content from GitHub, acting as a "Source of Truth" to keep the portfolio automatically updated.
+- **WebAssembly Demos**:
+  - **Game of Life**: Implemented in Rust and compiled to WASM for high-performance state calculation.
+  - **Pathfinder**: Implemented in Go and compiled to WASM to visualize BFS/DFS algorithms.
+- **Article Rendering**: Custom layout for technical articles with syntax highlighting and Mermaid diagram support.
+- **Responsive Design**: Mobile-friendly layout with a collapsible sidebar.
 
-The Go code interacts with the JavaScript frontend via the `syscall/js` package, allowing it to read the grid state and call JavaScript functions to paint cells on the HTML Canvas.
+## 🛠️ Tech Stack
 
-## WebAssembly Conversion
+- **Core**: React 19, React Router 7
+- **Build System**: Vite
+- **Languages**: JavaScript, Rust (WASM), Go (WASM)
+- **Utilities**: `react-markdown`, `mermaid`, `eslint`
 
-To run Go code in the browser, it must be compiled to the WebAssembly format.
+## 📦 Installation & Setup
 
-### 1. The Glue Code
-Go provides a JavaScript file (`wasm_exec.js`) that acts as a bridge between the browser's WebAssembly runtime and the Go runtime. You must copy this file to your project's public directory.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/LikhithST/Likhith_Portfolio.git
+   cd portfolio-likhith
+   ```
 
-Run this command in your terminal:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+## 🌐 Deployment
+
+The project is configured to deploy to GitHub Pages:
 
 ```bash
-cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" .
+npm run deploy
 ```
-
-*Note: Ensure this file is linked in your `index.html`.*
-
-### 2. Compilation
-To compile your Go code (`main.go`) into a `.wasm` binary, use the following environment variables:
-
-```bash
-GOOS=js GOARCH=wasm go build -o main.wasm main.go
-```
-
-Ensure the resulting `main.wasm` file is accessible to your React application (e.g., inside the `public/go-wasm-pkg/` directory).
-
-## Running the React Project
-
-1.  **Install Dependencies**:
-    ```bash
-    npm install
-    ```
-
-2.  **Start the Development Server**:
-    ```bash
-    npm start
-    ```
