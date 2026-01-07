@@ -7,7 +7,7 @@ const Projects = () => {
   useEffect(() => {
     const saved = localStorage.getItem('starred_projects');
     const now = Date.now();
-    const CACHE_DURATION = 1 * 60 * 1000; // 1 hour
+    const CACHE_DURATION = 1 * 60 * 1000; // 1 minute
 
     if (saved) {
       try {
