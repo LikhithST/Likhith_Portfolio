@@ -28404,27 +28404,39 @@ ${e2.themeCSS}`), e2.fontFamily !== void 0 && (n2 += `
         element: (0, j.jsx)(TC, {})
       })
     ]
-  });
-  function DC() {
-    return (0, j.jsx)(Yn, {
-      children: (0, j.jsxs)(`div`, {
-        className: `layout`,
-        children: [
-          (0, j.jsx)(vr, {}),
-          (0, j.jsx)(`div`, {
-            style: {
-              display: `flex`,
-              flexDirection: `column`,
-              minHeight: `100vh`
-            },
-            children: (0, j.jsx)(EC, {})
-          })
-        ]
-      })
+  }), DC = () => {
+    let e2 = Pt();
+    return (0, A.useEffect)(() => {
+      window.gtag && window.gtag(`config`, `G-0PJPC1ML77`, {
+        page_path: e2.pathname + e2.search
+      });
+    }, [
+      e2
+    ]), null;
+  };
+  function OC() {
+    return (0, j.jsxs)(Yn, {
+      children: [
+        (0, j.jsx)(DC, {}),
+        (0, j.jsxs)(`div`, {
+          className: `layout`,
+          children: [
+            (0, j.jsx)(vr, {}),
+            (0, j.jsx)(`div`, {
+              style: {
+                display: `flex`,
+                flexDirection: `column`,
+                minHeight: `100vh`
+              },
+              children: (0, j.jsx)(EC, {})
+            })
+          ]
+        })
+      ]
     });
   }
-  var OC = DC;
+  var kC = OC;
   (0, Se.createRoot)(document.getElementById(`root`)).render((0, j.jsx)(A.StrictMode, {
-    children: (0, j.jsx)(OC, {})
+    children: (0, j.jsx)(kC, {})
   }));
 });
