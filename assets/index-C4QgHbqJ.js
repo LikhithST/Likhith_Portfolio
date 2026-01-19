@@ -10360,6 +10360,15 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
       children: [
         (0, j.jsx)(`style`, {
           children: `
+        .profile-img {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: none;
+          margin-bottom: 1rem;
+        }
+
         .menu-toggle {
           display: none;
         }
@@ -10419,8 +10428,8 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
           className: `sidebar ${e2 ? `open` : ``}`,
           children: [
             (0, j.jsx)(`img`, {
-              src: `https://placehold.co/200x200/black/white?text=LS`,
-              alt: `Profile`,
+              src: `https://github.com/LikhithST.png`,
+              alt: `Likhith S T`,
               className: `profile-img`
             }),
             (0, j.jsx)(`h1`, {
@@ -10812,7 +10821,7 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
               fontSize: `1.05rem`,
               lineHeight: `1.6`
             },
-            children: `Software Engineer specializing in Cloud Native technologies and Observability frameworks. Building scalable solutions.`
+            children: `Software Engineer specializing in Cloud Native technologies and Edge-to-Cloud Platforms. Building scalable solutions.`
           }),
           (0, j.jsxs)(`section`, {
             className: `skills-section`,
