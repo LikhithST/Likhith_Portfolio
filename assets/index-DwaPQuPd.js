@@ -10653,9 +10653,9 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
       tags: [
         `Fault Injection`,
         `Kubernetes`,
-        `AWS Image Builder`,
         `eBPF`,
-        `Observability`
+        `Observability`,
+        `Fullstack development`
       ]
     },
     {
