@@ -18,7 +18,7 @@ const EXPERIENCE = [
       'Deployed cross-platform observability exporters (Node, Process, Windows, custom eBPF) as Kubernetes DaemonSets, utilizing kubernetes_sd_configs for dynamic discovery and label-based controls to manage resource overhead.',
       'Developed a full-stack observability suite featuring interactive fault injection and log aggregation, backed by custom APIs that feeds metrics and logs into an LLM context window to generate natural language performance insights.'
     ],
-    tags: ['Fault Injection', 'Kubernetes', 'AWS Image Builder', 'eBPF', 'Observability']
+    tags: ['Fault Injection', 'Kubernetes', 'eBPF', 'Observability', 'Fullstack development']
   },
   {
     company: 'Robert Bosch CR',
