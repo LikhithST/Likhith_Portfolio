@@ -10646,9 +10646,9 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
       role: `Master Thesis: Fault Injection Mechanisms in Virtualized Environments`,
       period: `July 2025 \u2013 Present`,
       desc: [
-        `Engineered a fault injection framework for cloud nodes to analyze how resource consumption affects the simulations running within them.`,
-        `Automated image creation with AWS Image Builder.`,
-        `Deployed cross-platform observability exporters (Node, Process, Windows, custom eBPF) as Kubernetes DaemonSets, utilizing kubernetes_sd_configs for dynamic discovery and label-based controls to manage resource overhead.`
+        `Engineered a fault injection framework for cloud nodes to analyze how resource consumption affects the vECU simulations running within them.`,
+        `Deployed cross-platform observability exporters (Node, Process, Windows, custom eBPF) as Kubernetes DaemonSets, utilizing kubernetes_sd_configs for dynamic discovery and label-based controls to manage resource overhead.`,
+        `Developed a full-stack observability suite featuring interactive fault injection and log aggregation, backed by custom APIs that feeds metrics and logs into an LLM context window to generate natural language performance insights.`
       ],
       tags: [
         `Fault Injection`,
