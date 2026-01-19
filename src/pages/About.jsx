@@ -131,7 +131,7 @@ const About = () => {
       
       <div className="about-content" style={{ marginTop: '1.5rem' }}>
         <p style={{ marginBottom: '2rem', fontSize: '1.05rem', lineHeight: '1.6' }}>
-          Software Engineer specializing in Cloud Native technologies and Observability frameworks. Building scalable solutions.
+          Software Engineer specializing in Cloud Native technologies and Edge-to-Cloud Platforms. Building scalable solutions.
         </p>
 
         <section className="skills-section">

@@ -17,6 +17,15 @@ const Sidebar = () => {
   return (
     <>
       <style>{`
+        .profile-img {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: none;
+          margin-bottom: 1rem;
+        }
+
         .menu-toggle {
           display: none;
         }
@@ -78,10 +87,9 @@ const Sidebar = () => {
       )}
 
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
-      {/* Placeholder for Tom's image */}
       <img 
-        src="https://placehold.co/200x200/black/white?text=LS" 
-        alt="Profile" 
+        src="https://github.com/LikhithST.png"
+        alt="Likhith S T"
         className="profile-img" 
       />
       
