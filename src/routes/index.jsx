@@ -10,6 +10,7 @@ import Contributions from '../pages/Contributions';
 import ProjectPage from '../pages/ProjectPage';
 import WasmArticle from '../pages/WasmArticle';
 import PortfolioArticle from '../pages/PortfolioArticle';
+import Dashboard from '../pages/Dashboard';
 
 const AppRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const AppRoutes = () => {
       <Route path="/contributions" element={<Contributions />} />
       <Route path="/article/wasm" element={<WasmArticle />} />
       <Route path="/article/portfolio" element={<PortfolioArticle />} />
+      <Route path="/admin" element={<Dashboard />} />
     </Routes>
   );
 };

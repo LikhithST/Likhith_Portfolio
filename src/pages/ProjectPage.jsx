@@ -6,6 +6,7 @@ import rehypeRaw from 'rehype-raw';
 import mermaid from 'mermaid';
 import GameOfLife from '../components/GameOfLife';
 import Pathfinder from '../components/Pathfinder';
+import projectsData from '../data/projects.json';
 
 mermaid.initialize({
   startOnLoad: false,
@@ -45,35 +46,18 @@ const ProjectPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchReadme = async () => {
-      setIsLoading(true);
-      setError(null);
-      const mainUrl = `https://raw.githubusercontent.com/LikhithST/${projectName}/main`;
-      const masterUrl = `https://raw.githubusercontent.com/LikhithST/${projectName}/master`;
+    setIsLoading(true);
+    setError(null);
 
-      try {
-        let response = await fetch(`${mainUrl}/README.md`);
-        if (response.ok) {
-          setBaseRawUrl(mainUrl);
-        } else {
-          response = await fetch(`${masterUrl}/README.md`);
-          if (response.ok) {
-            setBaseRawUrl(masterUrl);
-          } else {
-            throw new Error(`README.md not found in 'main' or 'master' branch.`);
-          }
-        }
-        const text = await response.text();
-        setReadmeContent(text);
-      } catch (err) {
-        setError(err.message);
-        console.error("Failed to fetch README:", err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    const project = projectsData.find(p => p.name === projectName);
 
-    fetchReadme();
+    if (project) {
+      setReadmeContent(project.readme || '*No README provided for this project.*');
+      setBaseRawUrl(`https://raw.githubusercontent.com/LikhithST/${projectName}/${project.default_branch || 'main'}`);
+    } else {
+      setError(`Project '${projectName}' not found in configuration.`);
+    }
+    setIsLoading(false);
   }, [projectName]);
 
   return (
