@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const SKILLS = [
   { category: "Languages", items: ["Go" ,"Rust", "JavaScript", "Python"] },
@@ -77,6 +77,8 @@ const EXPERIENCE = [
 ];
 
 const About = () => {
+  const [showPdf, setShowPdf] = useState(false);
+
   return (
     <main className="main-content">
       <style>{`
@@ -123,12 +125,24 @@ const About = () => {
           font-family: monospace;
         }
       `}</style>
-      <header>
-        <h2 style={{ borderBottom: '1px solid #000', paddingBottom: '0.5rem' }}>
-          About
-        </h2>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #000', paddingBottom: '0.5rem' }}>
+        <h2 style={{ margin: 0 }}>About</h2>
+        <div className="toggle-container">
+          <span className="toggle-label">Resume PDF</span>
+          <label className="switch">
+            <input 
+              type="checkbox" 
+              checked={showPdf}
+              onChange={() => setShowPdf(!showPdf)}
+            />
+            <span className="slider round"></span>
+          </label>
+        </div>
       </header>
       
+      {showPdf ? (
+        <iframe src="/Likhith_Portfolio/Likhith-Resume.pdf" className="pdf-viewer" title="Resume PDF" />
+      ) : (
       <div className="about-content" style={{ marginTop: '1.5rem' }}>
         <p style={{ marginBottom: '2rem', fontSize: '1.05rem', lineHeight: '1.6' }}>
           Software Engineer specializing in Cloud Native technologies and Edge-to-Cloud Platforms. Building scalable solutions.
@@ -182,6 +196,7 @@ const About = () => {
           ))}
         </div>
       </div>
+      )}
     </main>
   );
 };
