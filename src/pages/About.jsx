@@ -12,13 +12,14 @@ const EXPERIENCE = [
   {
     company: 'Robert Bosch M/TEY',
     role: 'Master Thesis: Fault Injection Mechanisms in Virtualized Environments',
-    period: 'July 2025 – Present',
+    period: 'July 2025 – March 2026',
     desc: [
-      'Engineered a fault injection framework for cloud nodes to analyze how resource consumption affects the vECU simulations running within them.',
-      'Deployed cross-platform observability exporters (Node, Process, Windows, custom eBPF) as Kubernetes DaemonSets, utilizing kubernetes_sd_configs for dynamic discovery and label-based controls to manage resource overhead.',
-      'Developed a full-stack observability suite featuring interactive fault injection and log aggregation, backed by custom APIs that feeds metrics and logs into an LLM context window to generate natural language performance insights.'
+      'Deployed cross-platform observability exporters (Node, Process, Windows, custom eBPF) as Kubernetes Daemon Sets and utilized kubernetes_sd_configs for dynamic discovery and label-based controls to manage resource overhead.',
+      'Developed a full-stack observability suite featuring interactive metrics visualization dashboard with log aggregation and fault Injection.',
+      'Engineered a fault injection framework to introduce controlled resource contention and analyzed its impact on vECU simulations using the observability suite.',
+      'Implementing USE Method to ease tracking the performance related issues.'
     ],
-    tags: ['Fault Injection', 'Kubernetes', 'eBPF', 'Observability', 'Fullstack development']
+    tags: ['Go','Docker', 'Kubernetes', 'Prometheus', 'eBPF', 'Fullstack development']
   },
   {
     company: 'Robert Bosch CR',
@@ -29,7 +30,7 @@ const EXPERIENCE = [
       'Analyzed Peer-to-Peer network paths across MNOs and ISPs to optimize connectivity in wired and wireless scenarios.',
       'Implemented WebRTC streaming and signaling with SFUs to minimize round-trip latency for camera streams and control signals.'
     ],
-    tags: ['V2C', 'Azure', 'WebRTC', 'Low-latency', 'Networking']
+    tags: ['V2C', 'Azure', 'WebRTC', 'Scalability', 'VNet Peering', 'Network Optimization']
   },
   {
     company: 'Robert Bosch CR',
@@ -72,7 +73,7 @@ const EXPERIENCE = [
       'Built a virtual platform for the Ministry of Health, Singapore, utilizing AWS Lambda, SES, and CloudWatch for event-driven automation.',
       'Executed data engineering tasks in Azure Synapse Analytics, implementing ETL pipelines with Azure Data Factory and Spark pools.'
     ],
-    tags: ['MERN Stack', 'AWS', 'Azure Synapse', 'ETL', 'Serverless']
+    tags: ['MERN Stack', 'AWS', 'ETL', 'AWS Lambda']
   }
 ];
 

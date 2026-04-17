@@ -13,7 +13,7 @@ function App() {
       <AnalyticsTracker />
       <div className="layout">
         <Sidebar />
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
           {/* <Header /> */}
           <AppRoutes />
           {/* <Footer /> */}

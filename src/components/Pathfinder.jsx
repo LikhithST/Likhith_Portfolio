@@ -272,7 +272,7 @@ const Pathfinder = () => {
         />
       </div>
       
-      <p style={styles.hint}>Click to place items. Select an algorithm to see Go execute in the browser.</p>
+      <p style={styles.hint}>Click to place Start, End and the Wall. Select an algorithm to see Go execute in the browser.</p>
     </div>
   );
 };

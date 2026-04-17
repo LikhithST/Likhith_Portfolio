@@ -4,6 +4,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import mermaid from 'mermaid';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import GameOfLife from '../components/GameOfLife';
 import Pathfinder from '../components/Pathfinder';
 import projectsData from '../data/projects.json';
@@ -61,14 +63,34 @@ const ProjectPage = () => {
   }, [projectName]);
 
   return (
-    <main className="main-content">
+    <main className="main-content" >
       <style>{`
         .markdown-wrapper {
           max-width: 1000px;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+        }
+        .markdown-wrapper * {
+          box-sizing: border-box;
+        }
+        .markdown-wrapper img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+        .markdown-wrapper pre, .markdown-wrapper table {
+          max-width: 100%;
+          overflow-x: auto;
         }
         @media (max-width: 768px) {
           .markdown-wrapper {
             max-width: 250px;
+          }
+          .markdown-wrapper img {
+            display: block;
+            margin: 0.5rem 0;
+          }
+          .markdown-wrapper a, .markdown-wrapper code:not(pre code) {
+            word-break: break-all;
           }
         }
       `}</style>
@@ -82,7 +104,7 @@ const ProjectPage = () => {
           <ProjectComponent />
         </div>        
       )}
-      <div className="markdown-body markdown-wrapper" style={{ marginTop: '1.5rem', overflowX: 'auto' }}>
+      <div className="markdown-body markdown-wrapper" style={{ marginTop: '1.5rem' }}>
         {isLoading && <p>Loading README...</p>}
         {error && <p>Error: {error}</p>}
         {!isLoading && !error && (
@@ -95,17 +117,42 @@ const ProjectPage = () => {
               return `${baseRawUrl}/${cleanUrl}`;
             }}
             components={{
-              img: ({node, ...props}) => <img {...props} style={{ maxWidth: '100%', height: 'auto' }} />,
-              code({node, inline, className, children, ...props}) {
-                const match = /language-(\w+)/.exec(className || '')
-                if (!inline && match && match[1] === 'mermaid') {
-                  return <Mermaid chart={String(children).replace(/\n$/, '')} />
+              img: ({node, src, ...props}) => {
+                let finalSrc = src;
+                if (src && !src.startsWith('http') && !src.startsWith('//') && !src.startsWith('data:') && !src.startsWith('mailto:')) {
+                  const cleanUrl = src.startsWith('./') ? src.slice(2) : src.startsWith('/') ? src.slice(1) : src;
+                  finalSrc = `${baseRawUrl}/${cleanUrl}`;
                 }
+                return <img src={finalSrc} {...props} style={{ maxWidth: '100%', height: 'auto' }} />;
+              },
+              code({ node, inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || '');
+
+                if (inline || !match) {
+                  // Render inline code blocks or blocks without a language without syntax highlighting.
+                  return (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                }
+
+                if (match[1] === 'mermaid') {
+                  return <Mermaid chart={String(children).replace(/\n$/, '')} />;
+                }
+
                 return (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                )
+                  <SyntaxHighlighter
+                    {...props}
+                    style={vscDarkPlus}
+                    language={match[1]}
+                    PreTag="pre"
+                    wrapLongLines={true}
+                    customStyle={{ maxWidth: '100%', overflowX: 'auto' }}
+                  >
+                    {String(children).replace(/\n$/, '')}
+                  </SyntaxHighlighter>
+                );
               }
             }}
           >
