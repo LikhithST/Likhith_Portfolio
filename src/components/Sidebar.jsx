@@ -88,7 +88,7 @@ const Sidebar = () => {
 
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <img 
-        src="https://github.com/LikhithST.png"
+        src="/Likhith_Portfolio/Likhith.jpeg"
         alt="Likhith S T"
         className="profile-img" 
       />
