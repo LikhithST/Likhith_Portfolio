@@ -26,23 +26,29 @@ async function pullProjects() {
 
   // 3. Process each repo and fetch its README
   for (const repo of repos) {
+    const existing = existingMap.get(repo.name) || {};
+    const isVisible = existing.isVisible || false; // Preserve visibility, default to false
+    
     console.log(`Processing ${repo.name}...`);
     let readme = '';
     
-    let readmeRes = await fetch(`https://raw.githubusercontent.com/${USERNAME}/${repo.name}/main/README.md`);
-    if (!readmeRes.ok) {
-      readmeRes = await fetch(`https://raw.githubusercontent.com/${USERNAME}/${repo.name}/master/README.md`);
+    // Only process resources for repositories marked to be visible
+    if (isVisible) {
+      let defaultBranch = repo.default_branch || 'main';
+      let readmeRes = await fetch(`https://raw.githubusercontent.com/${USERNAME}/${repo.name}/${defaultBranch}/README.md`);
+      if (!readmeRes.ok && defaultBranch === 'main') {
+        readmeRes = await fetch(`https://raw.githubusercontent.com/${USERNAME}/${repo.name}/master/README.md`);
+        if (readmeRes.ok) defaultBranch = 'master';
+      }
+      if (readmeRes.ok) {
+        readme = await readmeRes.text();
+      }
     }
-    if (readmeRes.ok) {
-      readme = await readmeRes.text();
-    }
-
-    const existing = existingMap.get(repo.name) || {};
     
     updatedProjects.push({
       ...repo, // Keep all standard GitHub repo properties
       readme: readme,
-      isVisible: existing.isVisible || false // Preserve visibility, default to false
+      isVisible: isVisible
     });
   }
 

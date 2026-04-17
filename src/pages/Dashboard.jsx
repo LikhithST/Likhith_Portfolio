@@ -6,10 +6,65 @@ const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [draggedItem, setDraggedItem] = useState(null);
   const [showJson, setShowJson] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    // On initial load, use the local projects.json
     setRepos(projectsData);
   }, []);
+
+  const handleRefreshFromGitHub = async () => {
+    if (!confirm('This will fetch the latest repository data from GitHub. Your current selections and order will be preserved. Continue?')) {
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const response = await fetch('https://api.github.com/users/LikhithST/repos?per_page=100&sort=updated');
+      if (!response.ok) throw new Error('Network response was not ok');
+      const githubData = await response.json();
+      
+      // Fetch all data directly from GitHub, including READMEs
+      const allRepos = await Promise.all(githubData.map(async repo => {
+        let readme;
+        try {
+          const readmeRes = await fetch(`https://raw.githubusercontent.com/LikhithST/${repo.name}/${repo.default_branch || 'main'}/README.md`);
+          readme = readmeRes.ok ? await readmeRes.text() : undefined;
+        } catch (err) {
+          console.error(`Failed to fetch README for ${repo.name}:`, err);
+          readme = undefined;
+        }
+        
+        const existingRepo = repos.find(r => r.name === repo.name);
+
+        return {
+          id: repo.id,
+          name: repo.name,
+          description: repo.description,
+          html_url: repo.html_url,
+          default_branch: repo.default_branch,
+          isVisible: existingRepo ? existingRepo.isVisible : false,
+          ...(readme !== undefined && { readme })
+        };
+      }));
+      
+      // Preserve the current sorting order
+      allRepos.sort((a, b) => {
+        const indexA = repos.findIndex(r => r.name === a.name);
+        const indexB = repos.findIndex(r => r.name === b.name);
+        if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+        if (indexA !== -1) return -1;
+        if (indexB !== -1) return 1;
+        return 0;
+      });
+
+      setRepos(allRepos);
+    } catch (error) {
+      console.error('Error fetching from GitHub API:', error);
+      alert('Failed to refresh from GitHub. Check the console for details.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleToggle = (repoName) => {
     setRepos(prevRepos => prevRepos.map(repo => 
@@ -63,10 +118,17 @@ const Dashboard = () => {
   );
 
   return (
-    <main className="main-content" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+    <main className="main-content">
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #000', paddingBottom: '1rem', marginBottom: '2rem' }}>
         <h2>Admin Dashboard: Sync Projects</h2>
         <div style={{ display: 'flex', gap: '1rem' }}>
+          <button 
+            onClick={handleRefreshFromGitHub}
+            disabled={isLoading}
+            style={{ padding: '0.5rem 1rem', cursor: 'pointer', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', opacity: isLoading ? 0.5 : 1 }}
+          >
+            {isLoading ? 'Refreshing...' : 'Refresh from GitHub'}
+          </button>
           <button 
             onClick={() => setShowJson(!showJson)} 
             style={{ padding: '0.5rem 1rem', cursor: 'pointer', background: '#e0e0e0', color: '#000', border: '1px solid #ccc', borderRadius: '4px' }}

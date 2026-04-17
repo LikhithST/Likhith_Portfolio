@@ -15,11 +15,11 @@ import Dashboard from '../pages/Dashboard';
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      {/*<Route path="/" element={<Home />} />*/}
       <Route path="/about" element={<About />} />
       <Route path="/consulting" element={<Consulting />} />
       <Route path="/library" element={<Library />} />
-      <Route path="/wiki" element={<Wiki />} />
+      <Route path="/wiki" element={<Wiki />} /> 
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:projectName" element={<ProjectPage />} />
       <Route path="/contributions" element={<Contributions />} />
