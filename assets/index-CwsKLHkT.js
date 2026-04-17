@@ -10495,7 +10495,7 @@ Please change the parent <Route path="${e3}"> to <Route path="${e3 === `/` ? `*`
           className: `sidebar ${e2 ? `open` : ``}`,
           children: [
             (0, N.jsx)(`img`, {
-              src: `https://github.com/LikhithST.png`,
+              src: `/Likhith_Portfolio/Likhith.jpeg`,
               alt: `Likhith S T`,
               className: `profile-img`
             }),
