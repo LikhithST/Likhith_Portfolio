@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../enterprise.css';
 
 // Mock Data to simulate the blog feed
 const POSTS = [
   {
-    id: 'portfolio-article',
-    date: 'Jan 07, 2026',
-    title: 'Automating My Portfolio with GitHub',
-    excerpt: 'How I built a self-updating portfolio that syncs directly with my code repositories.',
-    path: '/article/portfolio'
+    id: 'docker-aws-traffic',
+    date: 'May 19, 2026',
+    title: 'When Docker Eats Your AWS Traffic',
+    excerpt: 'Why your container can\'t reach your VPC and why the problem has nothing to do with AWS',
+    path: 'https://medium.com/@tolikhith/when-docker-eats-your-aws-traffic-b645c99c75ad'
   },
   {
     id: 'wasm-article',
@@ -21,27 +22,47 @@ const POSTS = [
 
 const Home = () => {
   return (
-    <main className="main-content">
+    <main className="main-content enterprise-main">
       <header>
-        <h2 style={{ borderBottom: '1px solid #000', paddingBottom: '0.5rem' }}>
-          Blogs
-        </h2>
+        <h2 className="enterprise-heading">Latest Insights</h2>
       </header>
       
-      <div className="feed-list">
-        {POSTS.map((post) => (
-          <article key={post.id} className="post-item">
-            <span className="post-date">{post.date}</span>
-            <h3 className="post-title">
-              {post.path ? (
-                <Link to={post.path}>{post.title}</Link>
-              ) : (
-                <a href="#">{post.title}</a>
-              )}
-            </h3>
-            <p>{post.excerpt}</p>
-          </article>
-        ))}
+      <div className="feed-list enterprise-grid">
+        {POSTS.map((post) => {
+          const isExternal = post.path.startsWith('http');
+          
+          const CardContent = (
+            <>
+              <span className="enterprise-card-date">{post.date}</span>
+              <h3 className="enterprise-card-title">{post.title}</h3>
+              <p className="enterprise-card-excerpt">{post.excerpt}</p>
+              <span className="enterprise-card-readmore">
+                Read article {isExternal ? '↗' : '→'}
+              </span>
+            </>
+          );
+
+          // Render an <a> tag for external links, and <Link> for internal routes
+          return isExternal ? (
+            <a 
+              key={post.id} 
+              href={post.path} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="enterprise-card"
+            >
+              {CardContent}
+            </a>
+          ) : (
+            <Link 
+              key={post.id} 
+              to={post.path} 
+              className="enterprise-card"
+            >
+              {CardContent}
+            </Link>
+          );
+        })}
       </div>
     </main>
   );

@@ -5,10 +5,10 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import mermaid from 'mermaid';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import GameOfLife from '../components/GameOfLife';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Pathfinder from '../components/Pathfinder';
 import projectsData from '../data/projects.json';
+import '../enterprise.css';
 
 mermaid.initialize({
   startOnLoad: false,
@@ -35,7 +35,6 @@ const Mermaid = ({ chart }) => {
 };
 
 const PROJECT_COMPONENTS = {
-  'wasm-game-of-life': GameOfLife,
   'path-finder': Pathfinder
 };
 
@@ -63,7 +62,7 @@ const ProjectPage = () => {
   }, [projectName]);
 
   return (
-    <main className="main-content" >
+    <main className="main-content enterprise-main">
       <style>{`
         .markdown-wrapper {
           max-width: 1000px;
@@ -95,8 +94,10 @@ const ProjectPage = () => {
         }
       `}</style>
       <header>
-        <h2 style={{ borderBottom: '1px solid #000', paddingBottom: '0.5rem' }}>
-          <Link to="/projects">/ Projects</Link> / {projectName}
+        <h2 className="enterprise-heading">
+          <Link to="/projects" style={{ textDecoration: 'none', color: 'var(--text-secondary)' }}>Projects</Link> 
+          <span style={{ color: 'var(--text-tertiary)', margin: '0 0.5rem' }}>/</span> 
+          {projectName}
         </h2>
       </header>
       {ProjectComponent && (

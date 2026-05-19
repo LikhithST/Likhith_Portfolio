@@ -1,0 +1,94 @@
+:root {
+  --ibm-blue: #0f62fe;
+  --text-primary: #161616;
+  --text-secondary: #393939;
+  --text-tertiary: #525252;
+  --border-subtle: #e0e0e0;
+  --bg-card: #ffffff;
+  --fluent-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --fluent-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.08);
+  --font-enterprise: "Segoe UI", "IBM Plex Sans", system-ui, sans-serif;
+}
+
+/* Global link reset to remove legacy yellow backgrounds, tap overlays, or outlines */
+a {
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ibm-blue);
+  outline-offset: 4px;
+}
+
+.enterprise-main {
+  max-width: 1200px;
+  margin: 0;
+  padding: 2rem 1rem;
+  font-family: var(--font-enterprise);
+}
+
+.enterprise-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--ibm-blue);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.enterprise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.enterprise-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  box-shadow: var(--fluent-shadow);
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.enterprise-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fluent-shadow-hover);
+}
+
+.enterprise-card-date {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.enterprise-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--ibm-blue);
+  line-height: 1.4;
+}
+
+.enterprise-card-excerpt {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.enterprise-card-readmore {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ibm-blue);
+  margin-top: auto;
+}

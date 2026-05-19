@@ -29,7 +29,6 @@ a {
 }
 
 a:hover {
-  background-color: var(--color-highlight);
   text-decoration: none;
 }
 

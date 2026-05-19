@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../enterprise.css';
 
 const SKILLS = [
   { category: "Languages", items: ["Go" ,"Rust", "JavaScript", "Python"] },
@@ -81,12 +82,12 @@ const About = () => {
   const [showPdf, setShowPdf] = useState(false);
 
   return (
-    <main className="main-content">
+    <main className="main-content enterprise-main">
       <style>{`
         .timeline {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 1.5rem;
         }
         .skills-section {
           margin-bottom: 3rem;
@@ -98,10 +99,11 @@ const About = () => {
         }
         .skill-category h4 {
           font-size: 1rem;
-          font-weight: bold;
+          font-weight: 600;
           margin-bottom: 0.75rem;
-          border-bottom: 2px solid #eee;
+          border-bottom: 2px solid var(--border-subtle);
           padding-bottom: 0.25rem;
+          color: var(--ibm-blue);
         }
         .skill-list {
           list-style: none;
@@ -111,23 +113,23 @@ const About = () => {
         .skill-list li {
           margin-bottom: 0.25rem;
           font-size: 0.95rem;
-          color: #333;
-        }
-        .timeline-item {
+          color: var(--text-secondary);
         }
         .tag {
           display: inline-block;
           font-size: 0.75rem;
           padding: 0.2rem 0.6rem;
-          border: 1px solid #000;
+          border: 1px solid var(--border-subtle);
+          border-radius: 4px;
           margin-right: 0.5rem;
           margin-top: 0.5rem;
-          background-color: #f4f4f4;
-          font-family: monospace;
+          background-color: var(--bg-card);
+          color: var(--text-secondary);
+          font-family: var(--font-enterprise);
         }
       `}</style>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #000', paddingBottom: '0.5rem' }}>
-        <h2 style={{ margin: 0 }}>About</h2>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '2rem' }}>
+        <h2 className="enterprise-heading" style={{ marginBottom: 0 }}>About</h2>
         <div className="toggle-container">
           <span className="toggle-label">Resume PDF</span>
           <label className="switch">
@@ -145,12 +147,12 @@ const About = () => {
         <iframe src="/Likhith_Portfolio/Likhith-Resume.pdf" className="pdf-viewer" title="Resume PDF" />
       ) : (
       <div className="about-content" style={{ marginTop: '1.5rem' }}>
-        <p style={{ marginBottom: '2rem', fontSize: '1.05rem', lineHeight: '1.6' }}>
+        <p style={{ marginBottom: '2rem', fontSize: '1.05rem', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
           Software Engineer specializing in Cloud Native technologies and Edge-to-Cloud Platforms. Building scalable solutions.
         </p>
 
         <section className="skills-section">
-          <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '1.5rem' }}>
+          <h3 className="enterprise-heading" style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>
             Skills
           </h3>
           <div className="skills-grid">
@@ -167,26 +169,26 @@ const About = () => {
           </div>
         </section>
 
-        <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '2rem' }}>
+        <h3 className="enterprise-heading" style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>
           Experience
         </h3>
         
         <div className="timeline">
           {EXPERIENCE.map((exp, index) => (
-            <div key={index} className="timeline-item">
+            <div key={index} className="enterprise-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', marginBottom: '0.25rem' }}>
-                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 'bold' }}>{exp.company}</h4>
-                <small style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: '#666' }}>{exp.period}</small>
+                <h4 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '600', color: 'var(--text-primary)' }}>{exp.company}</h4>
+                <small className="enterprise-card-date" style={{ marginBottom: 0 }}>{exp.period}</small>
               </div>
-              <div style={{ fontStyle: 'italic', fontSize: '0.9rem', marginBottom: '0.5rem', color: '#444' }}>{exp.role}</div>
+              <div style={{ fontWeight: '500', fontSize: '1rem', marginBottom: '1rem', color: 'var(--ibm-blue)' }}>{exp.role}</div>
               {Array.isArray(exp.desc) ? (
-                <ul style={{ margin: '0 0 0 1.2rem', padding: 0, fontSize: '0.95rem', lineHeight: '1.5' }}>
+                <ul style={{ margin: '0 0 0 1.2rem', padding: 0, fontSize: '1rem', lineHeight: '1.5', color: 'var(--text-secondary)' }}>
                   {exp.desc.map((item, i) => (
                     <li key={i} style={{ marginBottom: '0.25rem' }}>{item}</li>
                   ))}
                 </ul>
               ) : (
-                <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.5' }}>{exp.desc}</p>
+                <p className="enterprise-card-excerpt" style={{ margin: 0 }}>{exp.desc}</p>
               )}
               <div style={{ marginTop: '0.5rem' }}>
                 {exp.tags.map(tag => (
