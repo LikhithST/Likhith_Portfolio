@@ -8,35 +8,37 @@ const Contributions = () => {
         <h2 className="enterprise-heading">Contributions</h2>
       </header>
       <div className="enterprise-grid">
-        <article className="enterprise-card">
+        <a 
+          href="https://github.com/eclipse-kuksa/kuksa-databroker" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="enterprise-card"
+          style={{ textDecoration: 'none' }}
+        >
           <h3 className="enterprise-card-title">Eclipse Kuksa Databroker (Rust)</h3>
           <p className="enterprise-card-excerpt">
             Contributed by integrating OpenTelemetry for distributed tracing. Improved system observability and enabled trace analysis across microservices.
           </p>
-          <a 
-            href="https://github.com/eclipse-kuksa/kuksa-databroker" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="enterprise-card-readmore"
-          >
+          <span className="enterprise-card-readmore" style={{ textDecoration: 'none' }}>
             View Repository ↗
-          </a>
-        </article>
+          </span>
+        </a>
         
-        <article className="enterprise-card">
+        <a 
+          href="https://github.com/LikhithST/sofdcar-hackathon" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="enterprise-card"
+          style={{ textDecoration: 'none' }}
+        >
           <h3 className="enterprise-card-title">SofDCar Hackathon</h3>
           <p className="enterprise-card-excerpt">
             Technical Contributor & Organizer. Developed startup scripts and boilerplate code to streamline project initialization.
           </p>
-          <a 
-            href="https://github.com/LikhithST/sofdcar-hackathon" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="enterprise-card-readmore"
-          >
+          <span className="enterprise-card-readmore" style={{ textDecoration: 'none' }}>
             View Repository ↗
-          </a>
-        </article>
+          </span>
+        </a>
       </div>
     </main>
   );

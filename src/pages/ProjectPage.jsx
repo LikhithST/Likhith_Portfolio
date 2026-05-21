@@ -3,17 +3,13 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import mermaid from 'mermaid';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Pathfinder from '../components/Pathfinder';
 import projectsData from '../data/projects.json';
 import '../enterprise.css';
 
-mermaid.initialize({
-  startOnLoad: false,
-  theme: 'default',
-});
+
 
 const Mermaid = ({ chart }) => {
   const [svg, setSvg] = useState('');
@@ -21,6 +17,9 @@ const Mermaid = ({ chart }) => {
   useEffect(() => {
     const renderChart = async () => {
       try {
+        // Dynamically import mermaid only when needed
+        const mermaid = (await import('mermaid')).default;
+        mermaid.initialize({ startOnLoad: false, theme: 'default' });
         const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
         const { svg } = await mermaid.render(id, chart);
         setSvg(svg);

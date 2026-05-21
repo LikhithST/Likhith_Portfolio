@@ -3,7 +3,7 @@ import '../enterprise.css';
 
 const SKILLS = [
   { category: "Languages", items: ["Go" ,"Rust", "JavaScript", "Python"] },
-  // { category: "Web Development", items: ["SQL", "NoSQL", "MERN Stack", "MEAN Stack"] },
+  { category: "Web Development", items: ["FastAPI", "SQL", "NoSQL", "MERN Stack"] },
   { category: "Cloud & DevOps", items: ["AWS", "Azure", "Docker", "Kubernetes", "CI/CD"] },
   { category: "Observability", items: ["eBPF", "OpenTelemetry", "Prometheus", "Grafana"] },
   { category: "Frameworks & Protocols", items: ["ROS", "gRPC", "WebRTC", "Microservices", "Fault Injection"] }
@@ -126,6 +126,9 @@ const About = () => {
           background-color: var(--bg-card);
           color: var(--text-secondary);
           font-family: var(--font-enterprise);
+        }
+        .switch input:checked + .slider {
+          background-color: var(--ibm-blue, #0f8afe);
         }
       `}</style>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '2rem' }}>

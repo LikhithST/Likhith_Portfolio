@@ -9,4 +9,14 @@ export default defineConfig({
     wasm(),
     topLevelAwait()
   ],
+  build: {
+  minify: false,  // <-- add this
+  sourcemap: true,
+  rollupOptions: {
+      external: ['mermaid']  // ← add this
+    }
+},
+  optimizeDeps: {
+    exclude: ['mermaid']     // ← and this
+  }
 })

@@ -37,8 +37,5 @@
     "rollup": "^4.60.1",
     "vite-plugin-top-level-await": "^1.6.0",
     "vite-plugin-wasm": "^3.6.0"
-  },
-  "overrides": {
-    "vite": "npm:rolldown-vite@7.2.5"
   }
 }

@@ -1,50 +1,65 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../enterprise.css';
 
 const WasmArticle = () => {
   return (
-    <main className="main-content">
+    <main className="main-content enterprise-main">
       <style>{`
         .article-body {
           max-width: 800px;
-          line-height: 1.6;
-          font-size: 1.05rem;
+          line-height: 1.7;
+          font-size: 1.1rem;
+          color: var(--text-secondary, #333);
         }
         .article-body h3 {
-          margin-top: 2rem;
+          margin-top: 2.5rem;
           margin-bottom: 1rem;
-          font-weight: bold;
+          font-weight: 700;
+          color: var(--text-primary, #000);
+          border-bottom: 1px solid var(--border-subtle, #eaeaea);
+          padding-bottom: 0.5rem;
         }
         .article-body h4 {
-          margin-top: 1.5rem;
-          margin-bottom: 0.5rem;
+          margin-top: 2rem;
+          margin-bottom: 0.75rem;
           font-weight: 600;
+          color: var(--text-primary, #000);
         }
         .article-body ul {
           padding-left: 1.5rem;
           margin-bottom: 1.5rem;
         }
         .article-body li {
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.75rem;
         }
         .article-body code {
-          background: #eee;
+          background: var(--bg-card, #f4f4f4);
           padding: 0.2rem 0.4rem;
           border-radius: 4px;
-          font-family: monospace;
+          font-family: var(--font-mono, monospace);
           font-size: 0.9em;
+          color: var(--ibm-blue, #0f62fe);
+        }
+        .article-body a {
+          color: var(--ibm-blue, #0f62fe);
+          text-decoration: none;
+          font-weight: 500;
+        }
+        .article-body a:hover {
+          text-decoration: underline;
         }
       `}</style>
-      <header>
-        <h2 style={{ borderBottom: '1px solid #000', paddingBottom: '0.5rem' }}>
+      <header style={{ marginBottom: '2rem' }}>
+        <h2 className="enterprise-heading" style={{ marginBottom: '0.5rem' }}>
           WebAssembly in Action
         </h2>
-        <div style={{ color: '#666', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+        <div className="enterprise-card-date" style={{ marginTop: '0.5rem', display: 'block', marginBottom: 0 }}>
           Technical Deep Dive • Jan 06, 2026
         </div>
       </header>
 
-      <article className="article-body" style={{ marginTop: '2rem' }}>
+      <article className="article-body">
         <p>
           WebAssembly (Wasm) is a binary instruction format designed to be a portable compilation target for high-level languages like C, C++, Rust, and Go. It enables deployment on the web for client and server applications, running at near-native speed alongside JavaScript.
         </p>
