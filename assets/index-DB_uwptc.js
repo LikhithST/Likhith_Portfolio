@@ -12948,10 +12948,6 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
                     (0, import_jsx_runtime.jsx)("br", {}),
                     (0, import_jsx_runtime.jsx)("em", {
                       children: "Container Security - Liz Rice"
-                    }),
-                    (0, import_jsx_runtime.jsx)("br", {}),
-                    (0, import_jsx_runtime.jsx)("em", {
-                      children: "Learning eBPF - Liz Rice"
                     })
                   ]
                 }),
