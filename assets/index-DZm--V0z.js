@@ -13055,6 +13055,15 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
       ]
     },
     {
+      category: "Web Development",
+      items: [
+        "FastAPI",
+        "SQL",
+        "NoSQL",
+        "MERN Stack"
+      ]
+    },
+    {
       category: "Cloud & DevOps",
       items: [
         "AWS",
