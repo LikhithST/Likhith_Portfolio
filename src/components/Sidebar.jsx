@@ -208,9 +208,9 @@ const Sidebar = () => {
         </div>
 
       <div className="reading-list">
-        <small>Currently reading: <br/><em>Container Security - Liz Rice</em></small>
+        <small>Currently reading: <br/><em>GitOps Cookbook - Natale Vinto & Alex Soto Bueno</em></small>
         <br/><br/>
-        <small>Recently read: <br/><em>The Psychology of Money - Morgan Housel</em></small>
+        <small>Recently read: <br/><em>Container Security - Liz Rice</em></small>
       </div>
     </aside>
     </>
